@@ -1,0 +1,15 @@
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := grammar_jni
+LOCAL_SRC_FILES := grammar_jni.cpp
+
+LOCAL_C_INCLUDES += $(PROJECT_ROOT)/service/print
+LOCAL_C_INCLUDES += $(PROJECT_ROOT)/service/math
+$(info $(LOCAL_PATH): LOCAL_C_INCLUDES = $(LOCAL_C_INCLUDES))
+
+LOCAL_SHARED_LIBRARIES += printservice
+LOCAL_SHARED_LIBRARIES += mathservice
+$(info $(LOCAL_PATH): LOCAL_SHARED_LIBRARIES = $(LOCAL_SHARED_LIBRARIES))
+
+include $(BUILD_SHARED_LIBRARY)
